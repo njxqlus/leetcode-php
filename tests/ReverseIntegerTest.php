@@ -3,7 +3,6 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Solutions\ReverseInteger;
 use PHPUnit\Framework\TestCase;
-use Performance\Performance;
 
 class ReverseIntegerTest extends TestCase
 {
@@ -43,14 +42,5 @@ class ReverseIntegerTest extends TestCase
     public function testExample5()
     {
         $this->solution(1, 1);
-    }
-
-    public function testPerformance()
-    {
-        Performance::point();
-        /** @noinspection PhpExpressionResultUnusedInspection */
-        $this->problem->solution(123);
-        Performance::results();
-        $this->assertTrue(true);
     }
 }

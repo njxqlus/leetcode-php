@@ -1,7 +1,6 @@
 {
   "require-dev": {
-    "phpunit/phpunit": "^9",
-    "bvanhoekelen/performance": "^2.5"
+    "phpunit/phpunit": "^9"
   },
   "autoload": {
     "psr-0": {

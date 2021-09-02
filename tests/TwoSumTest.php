@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-use Performance\Performance;
 use PHPUnit\Framework\TestCase;
 use Solutions\TwoSum;
 
@@ -48,13 +47,5 @@ class TwoSumTest extends TestCase
     public function testExample6()
     {
         $this->solution([-3, 4, 3, 90], 0, [0, 2]);
-    }
-
-    public function testPerformance()
-    {
-        Performance::point();
-        $this->problem->solution([2, 7, 11, 15], 9);
-        Performance::results();
-        $this->assertTrue(true);
     }
 }
