@@ -26,17 +26,19 @@ class RomanToInteger
             'CD' => 400,
             'CM' => 900
         ];
+        $dict2 = ['IV', 'IX', 'XL', 'XC', 'CD', 'CM'];
         $len = strlen($s);
         if ($len === 1) return $dict[$s];
         $sum = 0;
-        for ($i = 0; $i < $len; $i++) {
-            if ($i < $len - 1
-                && in_array($s[$i], ['I', 'X', 'C'])
-                && in_array($s[$i] . $s[$i + 1], ['IV', 'IX', 'XL', 'XC', 'CD', 'CM'])) {
-                $sum += $dict[$s[$i] . $s[$i + 1]];
-                $i++;
-            } else {
-                $sum += $dict[$s[$i]];
+        foreach ($dict2 as $x) {
+            if (str_contains($s, $x)) { // use is_int(strpos($s, $x)) in PHP < 8.0
+                $s = str_replace($x, '', $s);
+                $sum += $dict[$x];
+            }
+        }
+        if ($s) {
+            foreach (str_split($s) as $x) {
+                $sum += $dict[$x];
             }
         }
         return $sum;
